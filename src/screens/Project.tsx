@@ -19,9 +19,10 @@ function Project() {
   }, [location]);
 
   function renderCarouselImages() {
-    return projectData.images.map((image) => {
+    return projectData.images.map((image, index) => {
       return (
         <div
+          key={index}
           style={{ height: "450px", backgroundColor: "rgba(200, 200, 200, 0.1)" }}
         >
           <img src={image} />
@@ -107,9 +108,9 @@ function Project() {
               <IoExtensionPuzzle />
               <p>{projectData.type}</p>
             </ProjectSpecialLabel>
-
-            <ProjectDesc>{projectData.descriptions}</ProjectDesc>
-
+            
+            { projectData.descriptions.map((desc, index) => <ProjectDesc key={index}>{desc}</ProjectDesc>) }
+            
             <ProjectTools>
               {projectData.devTools.map((title) => {
                 return <p>{title}</p>;
