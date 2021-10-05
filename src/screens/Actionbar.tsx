@@ -1,44 +1,81 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import colors from "../configs/colors";
-import { BiHomeAlt, BiNetworkChart, BiWorld } from "react-icons/bi";
-import { AiOutlineUser } from "react-icons/ai";
-import { HiOutlineMenu } from "react-icons/hi";
+import { BiHomeAlt } from "react-icons/bi";
 import { RiArrowDropDownLine } from "react-icons/ri";
+import { useState } from "react";
+import projects from "../configs/catalogue/projectsData";
 
 function Actionbar() {
+  enum ActiveMainPage { Home, About, Projects }
+  let history = useHistory()
+
+  function computeActiveMainPage() {
+    let active : ActiveMainPage;
+    if (history.location.pathname === '/') {
+      active = ActiveMainPage.Home
+    } else if (history.location.pathname === '/about') {
+      active = ActiveMainPage.About
+    } else {
+      active = ActiveMainPage.Projects
+    }
+    return active
+  }
+
+  function computeActiveProject() {
+    let activeId : string = '';
+
+    if (history.location.pathname.includes('/projects')) {
+      // Set active project
+      projects.forEach(({id}) => {
+        if (history.location.pathname.includes(`/${id}`)) {
+          activeId = id
+        }
+      })
+    }
+
+    return activeId
+  }
+  let [activeMainPage, setActiveMainPage] = useState<ActiveMainPage>(computeActiveMainPage()) 
+  let [activeProject, setActiveProject] = useState<string>(computeActiveProject())
+
+ 
+  history.listen((location: {pathname: string}, action) => {
+    setActiveMainPage(computeActiveMainPage())
+    setActiveProject(computeActiveProject())
+  })
+
+  function renderProjectLinks() {
+    return projects.map(({id, name}) => {
+      return (
+        <Link to={`/projects/${id}`} key={id}>
+          <span style={{color: activeProject === id ? colors.yellow : ''}}>{name.toUpperCase()}</span>
+        </Link>
+      )
+    })
+  }
+
   return (
     <Wrapper>
       <Left>
         <Link to={`/`}>
-          <BiHomeAlt />
+          <BiHomeAlt style={{color: activeMainPage === ActiveMainPage.Home ? colors.yellow : ''}} />
         </Link>
       </Left>
 
       <Right>
         <NavLink>
           <Link to={`/about`}>
-            <span>ABOUT</span>
+            <span style={{color: activeMainPage === ActiveMainPage.About ? colors.yellow : ''}}>ABOUT</span>
           </Link>
         </NavLink>
-        <DropDownLink>
+        <DropDownLink style={{color: activeMainPage === ActiveMainPage.Projects ? colors.yellow : ''}}>
           <span>PROJECTS</span>
           <DropArrow>
             <RiArrowDropDownLine />
           </DropArrow>
           <DropDownModal>
-            <Link to={`/projects/assemble`}>
-              <span>ASSEMBLE</span>
-            </Link>
-            <Link to={`/projects/emaily`}>
-              <span>EMAILY</span>
-            </Link>
-            <Link to={`/projects/unmix`}>
-              <span>UNMIX</span>
-            </Link>
-            <Link to={`/projects/poofers`}>
-              <span>POOFERS</span>
-            </Link>
+            { renderProjectLinks() }
           </DropDownModal>
         </DropDownLink>
       </Right>
@@ -120,7 +157,7 @@ const DropDownModal = styled.div`
   > a {
     transition: all 0.5s ease;
     color: white;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 400;
     margin: 5px 10px;
     text-decoration: none;
