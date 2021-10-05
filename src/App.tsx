@@ -7,6 +7,7 @@ import {
 import Actionbar from "./screens/Actionbar";
 import Main from "./screens/Main";
 import Project from "./screens/Project";
+import About from "./screens/About";
 
 function App() {
   return (
@@ -22,7 +23,7 @@ function App() {
         </Route>
 
         <Route path="/about">
-          <div>ABOUT SIAH</div>
+          <About />
         </Route>
 
         <Route path="*">
