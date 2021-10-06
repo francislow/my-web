@@ -47,7 +47,7 @@ function About() {
                   rel="noopener noreferrer"
                   href="https://www.asia.edu.tw/en/"
                 >
-                  Asian University Taiwan
+                  Asia University Taiwan
                 </a>{" "}
                 studying a web design course offered by the school.
               </p>

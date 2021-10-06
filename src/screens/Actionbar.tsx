@@ -201,7 +201,7 @@ const DropDownLink = styled.div`
   margin-left: 25px;
   font-size: 15px;
   font-weight: 500;
-  cursor: default;
+  cursor: pointer;
 
   color: white;
   transition: all 0.2s ease;
