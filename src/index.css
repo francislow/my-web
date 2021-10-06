@@ -15,3 +15,12 @@
   vertical-align: baseline;
   font-family: "Raleway";
 }
+
+a {
+  text-decoration: none;
+}
+
+a:visited,
+a:active {
+  text-decoration: none;
+}

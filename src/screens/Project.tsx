@@ -25,7 +25,7 @@ function Project() {
           key={index}
           style={{ height: "450px", backgroundColor: "rgba(200, 200, 200, 0.1)" }}
         >
-          <img src={image} />
+          <img alt="" src={image} />
         </div>
       );
     });
@@ -60,7 +60,7 @@ function Project() {
                   rel="noopener noreferrer external"
                   href={projectData.playstoreUrl}
                 >
-                  <img src={"/images/playstore.svg"}></img>
+                  <img alt="" src={"/images/playstore.svg"}></img>
                 </a>
               ) : (
                 <></>
@@ -71,7 +71,7 @@ function Project() {
                   rel="noopener noreferrer external"
                   href={projectData.appstoreUrl}
                 >
-                  <img src={"/images/appstore.svg"}></img>
+                  <img alt="" src={"/images/appstore.svg"}></img>
                 </a>
               ) : (
                 <></>
@@ -82,7 +82,7 @@ function Project() {
                   rel="noopener noreferrer external"
                   href={projectData.weburl}
                 >
-                  <img src={"/images/web.svg"}></img>
+                  <img alt="" src={"/images/web.svg"}></img>
                 </a>
               ) : (
                 <></>
@@ -93,7 +93,7 @@ function Project() {
                   rel="noopener noreferrer external"
                   href={projectData.sourceCodeLink}
                 >
-                  <img src={"/images/github.svg"}></img>
+                  <img alt="" src={"/images/github.svg"}></img>
                 </a>
               ) : (
                 <></>
@@ -112,8 +112,8 @@ function Project() {
             { projectData.descriptions.map((desc, index) => <ProjectDesc key={index}>{desc}</ProjectDesc>) }
             
             <ProjectTools>
-              {projectData.devTools.map((title) => {
-                return <p>{title}</p>;
+              {projectData.devTools.map((title, index) => {
+                return <p key={index}>{title}</p>;
               })}
             </ProjectTools>
           </Content>
@@ -171,6 +171,7 @@ const CarouselWrapper = styled.div`
   }
 
   @media (max-width: 768px) {
+    border-radius: 0px;
     margin-top: 50px;
   }
 `;

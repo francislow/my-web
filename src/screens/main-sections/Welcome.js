@@ -1,24 +1,9 @@
-import { useEffect } from 'react';
 import styled from 'styled-components'
-import colors from '../../configs/colors'
 
 function Welcome() {
-
-  // useEffect(() => {
-  //   function trackScrolling(a) {
-  //     console.log(a.target.scrollingElement.scrollTop)
-  //     console.log(a)
-  //   };
-
-  //   document.addEventListener('scroll', trackScrolling);
-  // }, [])
-
   return (
     <Background>
       <DarkOverlay>
-        {/* <ResumeButton>
-          Get a copy of my resume
-        </ResumeButton> */}
         <h1>Hey, I’m Francis</h1>
         <h3>I write code to add value to my world</h3>
       </DarkOverlay>
@@ -69,27 +54,5 @@ const DarkOverlay = styled.div`
     }
   }
 `
-
-// const ResumeButton = styled.button`
-//   position: fixed;
-//   top: 0;
-//   right: 0;
-//   cursor: pointer;
-//   margin: 20px;
-//   font-weight: 600;
-//   padding: 10px 15px;
-//   border-radius: 5px;
-//   color: black;
-//   z-index: 99;
-
-//   background-color: transparent;
-//   border: 2px solid black;
-//   transition: all 140ms cubic-bezier(0.2, 0.5, 0.7, 0.4);
-
-//   &:hover {
-//     background-color: ${colors.yellow};
-//     border: 2px solid ${colors.yellow};
-//   }
-// `
 
 export default Welcome

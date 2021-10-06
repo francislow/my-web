@@ -7,7 +7,7 @@ import { useState } from "react";
 import projects from "../configs/catalogue/projectsData";
 
 function Actionbar() {
-  enum ActiveMainPage { Home, About, Projects }
+  enum ActiveMainPage { Home, About, Projects, None }
   let history = useHistory()
 
   function computeActiveMainPage() {
@@ -16,9 +16,12 @@ function Actionbar() {
       active = ActiveMainPage.Home
     } else if (history.location.pathname === '/about') {
       active = ActiveMainPage.About
-    } else {
+    } else if (history.location.pathname.includes('/projects')) {
       active = ActiveMainPage.Projects
+    } else {
+      active = ActiveMainPage.None
     }
+
     return active
   }
 
@@ -106,12 +109,6 @@ const Left = styled.div`
     transition: all 0.5s ease;
     color: white;
     font-size: 25px;
-    text-decoration: none;
-  }
-
-  > a:visited, > a:active {
-    text-decoration: none;
-    color: white;
   }
 
   > a:hover {
@@ -160,12 +157,6 @@ const DropDownModal = styled.div`
     font-size: 13px;
     font-weight: 400;
     margin: 5px 10px;
-    text-decoration: none;
-  }
-
-  > a:visited, > a:active {
-    text-decoration: none;
-    color: white;
   }
 
   > a:hover {
@@ -191,8 +182,7 @@ const NavLink = styled.div`
   color: white;
   transition: all 0.2s ease;
 
-  a, a:visited, a:active {
-    text-decoration: none;
+  a {
     color: inherit;
   }
 

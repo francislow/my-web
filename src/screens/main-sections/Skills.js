@@ -12,73 +12,73 @@ function Skills() {
       </Title>
       <Wrapper>
         <Item>
-          <img src="/images/skills/html.png"></img>
+          <img alt=""  src="/images/skills/html.svg"></img>
           <div>
             <p>HTML5</p>
           </div>
         </Item>
         <Item>
-          <img src="/images/skills/css.png"></img>
+          <img alt=""  src="/images/skills/css.svg"></img>
           <div>
             <p>CSS3</p>
           </div>
         </Item>
         <Item>
-          <img src="/images/skills/javascript.png"></img>
+          <img alt=""  src="/images/skills/javascript.svg"></img>
           <div>
             <p>JavaScript</p>
           </div>
         </Item>
         <Item href="https://reactjs.org/" target="_blank" rel="noopener noreferrer external">
-          <img src="/images/skills/react.png"></img>
+          <img alt=""  src="/images/skills/react.svg"></img>
           <div>
             <p>ReactJS</p>
           </div>
         </Item>
         <Item href="https://vuejs.org/" target="_blank" rel="noopener noreferrer external">
-          <img src="/images/skills/vue.png"></img>
+          <img alt=""  src="/images/skills/vue.svg"></img>
           <div>
             <p>VueJS</p>
           </div>
         </Item>
         <Item href="https://reactnative.dev/" target="_blank" rel="noopener noreferrer external">
-          <img src="/images/skills/reactnative.png"></img>
+          <img alt=""  src="/images/skills/reactnative.png"></img>
           <div>
             <p>React Native</p>
           </div>
         </Item>
         <Item href="https://nativescript-vue.org/" target="_blank" rel="noopener noreferrer external">
-          <img src="/images/skills/nativescript_vue.png"></img>
+          <img alt=""  src="/images/skills/nativescript_vue.png"></img>
           <div>
             <p>NativeScript Vue</p>
           </div>
         </Item>
         <Item href="https://expressjs.com/" target="_blank" rel="noopener noreferrer external">
-          <img src='/images/skills/express.png'></img>
+          <img alt=""  src='/images/skills/express.png'></img>
           <div>
             <p>ExpressJS</p>
           </div>
         </Item>
         <Item href="https://www.postgresql.org/" target="_blank" rel="noopener noreferrer external">
-          <img src='/images/skills/postgres.png'></img>
+          <img alt=""  src='/images/skills/postgres.svg'></img>
           <div>
             <p>PostgreSQL</p>
           </div>
         </Item>
         <Item href="https://www.mongodb.com/" target="_blank" rel="noopener noreferrer external">
-          <img src='/images/skills/mongodb.png'></img>
+          <img alt=""  src='/images/skills/mongodb.png'></img>
           <div>
             <p>MongoDB</p>
           </div>
         </Item>
         <Item href="https://firebase.google.com/" target="_blank" rel="noopener noreferrer external">
-          <img src="/images/skills/firebase.png"></img>
+          <img alt=""  src="/images/skills/firebase.svg"></img>
           <div>
             <p>Firebase Services</p>
           </div>
         </Item>
         <Item href="https://aws.amazon.com/" target="_blank" rel="noopener noreferrer external">
-          <img src="/images/skills/aws.png"></img>
+          <img alt=""  src="/images/skills/aws.svg"></img>
           <div>
             <p>AWS</p>
           </div>
@@ -124,6 +124,10 @@ const Wrapper = styled.div`
   }
 
   @media (max-width: 1080px) {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
+  @media (max-width: 880px) {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
@@ -169,6 +173,8 @@ const Item = styled.a`
 
       font-size: 10px;
       transition: all 150ms cubic-bezier(0.2, 0.5, 0.7, 0.4) 0.14s;
+
+
     }
 
     &:hover {
@@ -178,6 +184,10 @@ const Item = styled.a`
     &:hover > p {
       color: white;
       font-size: 15px;
+
+      @media (max-width: 768px) {
+        font-size: 12px;
+      }
     }
   }
 `;

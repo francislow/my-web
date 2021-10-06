@@ -17,7 +17,7 @@ function Gallery() {
           projectsData.map((data, index) => (
             <Item key={index}>
               <Link to={`/projects/${data.id}`}>
-                <img src={data.images[0]} alt="" />
+                <img alt="" src={data.images[0]} />
               </Link>
             </Item>
           ))

@@ -8,6 +8,7 @@ import Actionbar from "./screens/Actionbar";
 import Main from "./screens/Main";
 import Project from "./screens/Project";
 import About from "./screens/About";
+import Credit from "./screens/Credit";
 
 function App() {
   return (
@@ -18,12 +19,16 @@ function App() {
           <Main />
         </Route>
 
-        <Route path="/projects/:projectId">
+        <Route exact path="/projects/:projectId">
           <Project />
         </Route>
 
-        <Route path="/about">
+        <Route exact path="/about">
           <About />
+        </Route>
+
+        <Route exact path="/credits">
+          <Credit />
         </Route>
 
         <Route path="*">

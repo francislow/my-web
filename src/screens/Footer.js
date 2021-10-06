@@ -3,20 +3,12 @@ import colors from '../configs/colors'
 import { AiFillGithub, AiOutlineInstagram, AiOutlineCopyright } from 'react-icons/ai';
 import { FiMail } from 'react-icons/fi';
 import { FaLinkedinIn } from 'react-icons/fa';
-import { HiChevronDoubleUp } from 'react-icons/hi';
+import { Link } from 'react-router-dom';
 
 function Footer({hasBackground}) {
-  const Container = styled.div`
-    background: url(${hasBackground ? '/images/footer_bg.jpg' : ''});
-    background-color: ${hasBackground ? 'transparent' : colors.bg_color};
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    width: 100%;
-  `
 
   return (
-    <Container>
+    <Container hasBackground={hasBackground}>
       <DarkOverlay>
         <h1 style={{height: '100%'}}>Around the web</h1>
         <Separator />
@@ -39,12 +31,24 @@ function Footer({hasBackground}) {
           <AiOutlineCopyright />
           <p>{new Date().getFullYear() + ' Francis Low'}</p>
         </Copyright>
+
+        <CreditText><Link to='/credits'>Assets</Link></CreditText>
       </DarkOverlay>
     </Container>
   )
 }
 
+const Container = styled.div`
+  background: url(${props => props.hasBackground ? '/images/footer_bg.jpg' : ''});
+  background-color: ${props => props.hasBackground ? 'transparent' : colors.bg_color};
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+`
+
 const DarkOverlay = styled.div`
+  position: relative;
   background: linear-gradient(to bottom, rgba(10,10,10,1), 75%, rgba(0,0,0,0.0));
   width: 100%;
   padding: 100px 50px;
@@ -113,6 +117,25 @@ const Copyright = styled.div`
 
   p {
     margin-left: 6px;
+  }
+`
+
+const CreditText = styled.div`
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  cursor: pointer;
+
+  a {
+    transition: all 0.5s ease;
+    color: grey;
+    font-size: 11px;
+    font-style: italic;
+    font-weight: 500;
+  }
+
+  a:hover {
+    color: white;
   }
 `
 

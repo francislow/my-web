@@ -1,6 +1,6 @@
 import Skills from './main-sections/Skills'
 import Gallery from './main-sections/Gallery'
-import Collaborate from './main-sections/Collaborate'
+import Collaborate from '../components/Collaborate'
 import Welcome from './main-sections/Welcome'
 import Footer from './Footer'
 
@@ -17,10 +17,8 @@ function Main() {
 }
 
 /*
-  Resume
-  Coding life journey (ie about page)
-  Project Page
-  Credits
+  Image sizes (about, welcome, project background is huges)
+  Convert files to tsx
 */
 
 export default Main
