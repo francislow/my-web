@@ -149,7 +149,7 @@ const DropDownModal = styled.div`
 
   opacity: 0;
   visibility: hidden;
-  transition: all 0.5s ease;
+  transition: all 0.3s ease;
 
   > a {
     transition: all 0.5s ease;
