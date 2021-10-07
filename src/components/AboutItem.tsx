@@ -1,21 +1,31 @@
+import React from "react";
 import styled from "styled-components";
 import colors from "../configs/colors";
 
-function AboutItem({imgUrl, title, type, children}) {
+interface Props {
+  imgUrl: string;
+  title: string;
+  type: number;
+  children: React.ReactNode;
+}
+
+interface WrapperProps {
+  type: number;
+}
+
+const AboutItem: React.FC<Props> = ({ imgUrl, title, type, children }) => {
   return (
-    <SectionItem type={type}>
+    <Wrapper type={type}>
       <img alt="" src={imgUrl}></img>
       <div>
         <h3>{title}</h3>
-        <div>
-          {children}
-        </div>
+        <div>{children}</div>
       </div>
-    </SectionItem>
+    </Wrapper>
   );
-}
+};
 
-const SectionItem = styled.div`
+const Wrapper = styled.div<WrapperProps>`
   display: flex;
   align-items: center;
   margin-bottom: 100px;
@@ -47,9 +57,9 @@ const SectionItem = styled.div`
     height: 220px;
     min-width: 400px;
     object-fit: cover;
-    order: ${props => props.type === 0 ? 0 : 1};
-    margin-right: ${props => props.type === 0 ? '100px' : 0};
-    margin-left: ${props => props.type === 1 ? '100px' : 0};
+    order: ${(props) => (props.type === 0 ? 0 : 1)};
+    margin-right: ${(props) => (props.type === 0 ? "100px" : 0)};
+    margin-left: ${(props) => (props.type === 1 ? "100px" : 0)};
   }
 
   @media (max-width: 1180px) {

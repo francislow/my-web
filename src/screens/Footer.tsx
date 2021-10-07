@@ -4,8 +4,13 @@ import { AiFillGithub, AiOutlineInstagram, AiOutlineCopyright } from 'react-icon
 import { FiMail } from 'react-icons/fi';
 import { FaLinkedinIn } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import React from 'react';
 
-function Footer({hasBackground}) {
+interface Props {
+  hasBackground: boolean
+}
+
+const Footer: React.FC<Props> = ({hasBackground}) => {
 
   return (
     <Container hasBackground={hasBackground}>
@@ -38,7 +43,7 @@ function Footer({hasBackground}) {
   )
 }
 
-const Container = styled.div`
+const Container = styled.div<Props>`
   background: url(${props => props.hasBackground ? '/images/footer_bg.jpg' : ''});
   background-color: ${props => props.hasBackground ? 'transparent' : colors.bg_color};
   background-repeat: no-repeat;

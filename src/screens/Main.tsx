@@ -16,11 +16,4 @@ function Main() {
   )
 }
 
-/*
-  Convert files to tsx
-
-  Update projects at github
-  Update portfolio websites at github
-*/
-
 export default Main
