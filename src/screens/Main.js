@@ -1,13 +1,13 @@
 import Skills from './main-sections/Skills'
 import Gallery from './main-sections/Gallery'
 import Collaborate from '../components/Collaborate'
-import Welcome from './main-sections/Welcome'
+import Landing from './main-sections/Landing'
 import Footer from './Footer'
 
 function Main() {
   return (
     <>
-      <Welcome />
+      <Landing />
       <Skills />
       <Collaborate />
       <Gallery />
@@ -17,8 +17,10 @@ function Main() {
 }
 
 /*
-  Image sizes (about, welcome, project background is huges)
   Convert files to tsx
+
+  Update projects at github
+  Update portfolio websites at github
 */
 
 export default Main

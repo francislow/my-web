@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-function Welcome() {
+function Landing() {
   return (
     <Background>
       <DarkOverlay>
@@ -15,7 +15,7 @@ const Background = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  background-image: url('/images/main_bg.jpg');
+  background-image: url('/images/landing_bg.jpg');
   height: 100vh;
   width: 100%;
 `
@@ -55,4 +55,4 @@ const DarkOverlay = styled.div`
   }
 `
 
-export default Welcome
+export default Landing

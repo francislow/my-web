@@ -17,7 +17,7 @@ function About() {
       <Page>
         <TopBackground>
           <DarkOverlay>
-            <Photo src="/images/francis_pic.png"></Photo>
+            <Photo src="/images/francis_pic-min.png"></Photo>
             <NameText>FRANCIS LOW</NameText>
             <Headline>
               FULL-STACK DEVELOPER
@@ -106,7 +106,7 @@ const Page = styled.div`
 const TopBackground = styled.div`
   height: 400px;
   width: 100%;
-  background-image: url("/images/about_bg.jpg");
+  background-image: url("/images/about_bg-min.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
