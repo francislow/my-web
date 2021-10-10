@@ -6,7 +6,7 @@ const projects = [
     timeline: "August 2020 - January 2021",
     descriptions: [
       "Assemble is a local mobile app made for Singaporeans which allows them to form meaningful relationship. It features new daily matches, chat functionality, in-app notifications and functionality to report users for inappropriate behaviours.",
-      "This project was built amidst my Year 4 Semester 2 in NUS. This project was meant to be fun and also to be an oppurtunity to revisit the technologies that I used during my internship in Webpuppies.",
+      "This project was built amidst my Year 4 Semester 2 in NUS. This project was meant to be fun and also to be an opportunity to revisit the technologies that I used during my internship in Webpuppies.",
       "This server to this project has been taken down since 28 May 2021.",
     ],
     devTools: [
