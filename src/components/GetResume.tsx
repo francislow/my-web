@@ -3,16 +3,20 @@ import colors from '../configs/colors'
 import docAnimation from "../configs/lottie/document.json";
 import Lottie from "lottie-react";
 
+const Reveal = require('react-reveal');
+
 function GetResume() {
   return (
     <Container>
-      <LottieContainer>
-        <Lottie animationData={docAnimation} />
-      </LottieContainer>
-      <div>
-        <h1>Find out more about my technical background?</h1>
-        <ContactButton onClick={() => window.open('/documents/resume.pdf')}>Get my resume</ContactButton>
-      </div>
+      <Reveal.Slide bottom>
+        <LottieContainer>
+          <Lottie animationData={docAnimation} />
+        </LottieContainer>
+        <div>
+          <h1>Find out more about my technical background?</h1>
+          <ContactButton onClick={() => window.open('/documents/resume.pdf')}>Get my resume</ContactButton>
+        </div>
+      </Reveal.Slide>
     </Container>
   )
 }

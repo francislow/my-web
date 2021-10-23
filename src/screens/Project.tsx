@@ -9,6 +9,8 @@ import { BsCalendarFill } from "react-icons/bs";
 import { IoExtensionPuzzle } from "react-icons/io5";
 import Footer from "./Footer";
 
+const Reveal = require('react-reveal');
+
 function Project() {
   const { projectId } = useParams<{ projectId: string }>();
   const projectData = projectsData.filter((data) => data.id === projectId)[0];
@@ -35,6 +37,7 @@ function Project() {
     <>
       <Page>
         <DarkOverlay>
+        <Reveal.Slide bottom>
           <CarouselWrapper>
             <Carousel
               autoPlay={true}
@@ -117,6 +120,7 @@ function Project() {
               })}
             </ProjectTools>
           </Content>
+        </Reveal.Slide>
         </DarkOverlay>
       </Page>
       <Footer hasBackground={false} />

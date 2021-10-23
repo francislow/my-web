@@ -6,6 +6,8 @@ import GetResume from "../components/GetResume";
 import { useLocation } from "react-router";
 import { useEffect } from "react";
 
+const Reveal = require('react-reveal');
+
 function About() {
   const location = useLocation();
   useEffect(() => {
@@ -17,76 +19,80 @@ function About() {
       <Page>
         <TopBackground>
           <DarkOverlay>
-            <Photo src="/images/francis_pic-min.png"></Photo>
-            <NameText>FRANCIS LOW</NameText>
-            <Headline>
-              FULL-STACK DEVELOPER
-            </Headline>
+            <Reveal.Slide top>
+              <Photo src="/images/francis_pic-min.png"></Photo>
+              <NameText>FRANCIS LOW</NameText>
+              <Headline>
+                FULL-STACK DEVELOPER
+              </Headline>
+            </Reveal.Slide>
           </DarkOverlay>
         </TopBackground>
         <BottomWrapper>
-          <Content>
-            <AboutItem
-              imgUrl="/images/education.jpg"
-              title="BACKGROUND"
-              type={0}
-            >
-              <p>
-                Based in Singapore, I have graduated from the{" "}
-                <a
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href="https://www.nus.edu.sg/"
-                >
-                  National University of Singapore
-                </a>{" "}
-                in year 2021 with a degree in Applied Mathematics and a minor in
-                Computer Science. In the summer of 2019, I spent my time in{" "}
-                <a
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href="https://www.asia.edu.tw/en/"
-                >
-                  Asia University Taiwan
-                </a>{" "}
-                studying a web design course offered by the school.
-              </p>
-            </AboutItem>
-            <AboutItem
-              imgUrl="/images/work.jpg"
-              title="WORK EXPERIENCE"
-              type={1}
-            >
-              <p>
-                I previously interned at{" "}
-                <a
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href="https://www.asia.edu.tw/en/"
-                >
-                  Webpuppies Digital
-                </a>
-                , an IT consulting firm, where I work on a mobile application
-                and a content management web application for{" "}
-                <a
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href="https://maxi-cash.com/about-us/"
-                >
-                  Maxi-Cash
-                </a>
-                . I am currently a full-time software engineer at{" "}
-                <a
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href="https://www.ufinity.com/"
-                >
-                  Ufinity
-                </a>
-                , an IT solutions engineering company.
-              </p>
-            </AboutItem>
-          </Content>
+          <Reveal.Slide bottom>
+            <Content>
+              <AboutItem
+                imgUrl="/images/education.jpg"
+                title="BACKGROUND"
+                type={0}
+              >
+                <p>
+                  Based in Singapore, I have graduated from the{" "}
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://www.nus.edu.sg/"
+                  >
+                    National University of Singapore
+                  </a>{" "}
+                  in year 2021 with a degree in Applied Mathematics and a minor in
+                  Computer Science. In the summer of 2019, I spent my time in{" "}
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://www.asia.edu.tw/en/"
+                  >
+                    Asia University Taiwan
+                  </a>{" "}
+                  studying a web design course offered by the school.
+                </p>
+              </AboutItem>
+              <AboutItem
+                imgUrl="/images/work.jpg"
+                title="WORK EXPERIENCE"
+                type={1}
+              >
+                <p>
+                  I previously interned at{" "}
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://www.asia.edu.tw/en/"
+                  >
+                    Webpuppies Digital
+                  </a>
+                  , an IT consulting firm, where I work on a mobile application
+                  and a content management web application for{" "}
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://maxi-cash.com/about-us/"
+                  >
+                    Maxi-Cash
+                  </a>
+                  . I am currently a full-time software engineer at{" "}
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://www.ufinity.com/"
+                  >
+                    Ufinity
+                  </a>
+                  , an IT solutions engineering company.
+                </p>
+              </AboutItem>
+            </Content>
+          </Reveal.Slide>
         </BottomWrapper>
         <GetResume />
       </Page>
