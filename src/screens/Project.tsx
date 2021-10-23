@@ -127,7 +127,7 @@ function Project() {
 const Page = styled.div`
   min-height: 100vh;
   width: 100%;
-  background-image: url("/images/project_bg.jpg");
+  background-image: url("/images/project_bg.jpg"), url("/images/project_lowres_bg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;

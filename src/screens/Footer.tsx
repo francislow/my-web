@@ -44,7 +44,7 @@ const Footer: React.FC<Props> = ({hasBackground}) => {
 }
 
 const Container = styled.div<Props>`
-  background: url(${props => props.hasBackground ? '/images/footer_bg.jpg' : ''});
+  background: url(${props => props.hasBackground ? '/images/footer_bg.jpg' : ''}), url(${props => props.hasBackground ? '/images/footer_lowres_bg.jpg' : ''});
   background-color: ${props => props.hasBackground ? 'transparent' : colors.bg_color};
   background-repeat: no-repeat;
   background-size: cover;

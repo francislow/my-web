@@ -106,7 +106,7 @@ const Page = styled.div`
 const TopBackground = styled.div`
   height: 400px;
   width: 100%;
-  background-image: url("/images/about_bg-min.jpg");
+  background-image: url("/images/about_bg.jpg"), url("/images/about_lowres_bg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
