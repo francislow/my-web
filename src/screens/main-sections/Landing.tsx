@@ -21,7 +21,7 @@ const Background = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  background-image: url('/images/landing_bg.jpg');
+  background-image: url('/images/landing_bg.jpg'), url('/images/landing_low_bg.jpg');
   height: 100vh;
   width: 100%;
 `

@@ -15,30 +15,30 @@ import Loading from "./screens/Loading";
 function App() {
   let [isloading, setIsLoading] = useState(true)
 
-  useEffect(() => {
-    const images = ['/images/landing_bg.jpg']
-    cacheImages(images);
-  }, [])
+  // useEffect(() => {
+  //   const images = ['/images/landing_bg.jpg']
+  //   cacheImages(images);
+  // }, [])
 
-  async function cacheImages(images: Array<string>) {
-    setIsLoading(true)
-    const promises = await images.map(url => {
-      return new Promise((resolve, reject) => {
-        const image = new Image()
-        image.src = url
-        image.onload = () => resolve(null)
-        image.onerror = () => reject(null)
-      })
-    })
+  // async function cacheImages(images: Array<string>) {
+  //   setIsLoading(true)
+  //   const promises = await images.map(url => {
+  //     return new Promise((resolve, reject) => {
+  //       const image = new Image()
+  //       image.src = url
+  //       image.onload = () => resolve(null)
+  //       image.onerror = () => reject(null)
+  //     })
+  //   })
 
-    await Promise.all(promises)
-    setIsLoading(false)
-  }
+  //   await Promise.all(promises)
+  //   setIsLoading(false)
+  // }
 
   return (
     <>
-    {isloading ? 
-      <Loading /> :
+    {/* {isloading ? 
+      <Loading /> : */}
       <Router>
         <Actionbar />
         <Switch>
@@ -63,7 +63,7 @@ function App() {
           </Route>
         </Switch>
       </Router>
-    }
+    {/* } */}
     </>
   );
 }
