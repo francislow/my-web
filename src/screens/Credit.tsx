@@ -20,6 +20,7 @@ function Credit() {
           <CreditLink desc="Handshake animation by Jemmy Se" url="https://lottiefiles.com/50463-shake-hands"/>
           <CreditLink desc="Tools animation by Korhan Ulusoy" url="https://lottiefiles.com/36760-settings-icon"/>
           <CreditLink desc="Light Bulb animation by Sin Xiang Yi" url="https://lottiefiles.com/42848-light-bulk-line-art"/>
+          <CreditLink desc="Loading animation by Yao Ottersan" url="https://lottiefiles.com/9965-loading-spinner"/>
         </Section>
 
         <Section>
