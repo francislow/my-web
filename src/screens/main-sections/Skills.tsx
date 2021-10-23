@@ -3,87 +3,92 @@ import Lottie from "lottie-react";
 import toolsAnimation from "../../configs/lottie/tools.json";
 import colors from "../../configs/colors";
 
+const Reveal = require('react-reveal');
+
 function Skills() {
   return (
     <Container>
-      <Title>
-        <Lottie style={{ width: "60px" }} animationData={toolsAnimation} />
-        <h1>My bread and butter</h1>
-      </Title>
-      <Wrapper>
-        <Item>
-          <img alt=""  src="/images/skills/html.svg"></img>
-          <div>
-            <p>HTML5</p>
-          </div>
-        </Item>
-        <Item>
-          <img alt=""  src="/images/skills/css.svg"></img>
-          <div>
-            <p>CSS3</p>
-          </div>
-        </Item>
-        <Item>
-          <img alt=""  src="/images/skills/javascript.svg"></img>
-          <div>
-            <p>JavaScript</p>
-          </div>
-        </Item>
-        <Item href="https://reactjs.org/" target="_blank" rel="noopener noreferrer external">
-          <img alt=""  src="/images/skills/react.svg"></img>
-          <div>
-            <p>ReactJS</p>
-          </div>
-        </Item>
-        <Item href="https://vuejs.org/" target="_blank" rel="noopener noreferrer external">
-          <img alt=""  src="/images/skills/vue.svg"></img>
-          <div>
-            <p>VueJS</p>
-          </div>
-        </Item>
-        <Item href="https://reactnative.dev/" target="_blank" rel="noopener noreferrer external">
-          <img alt=""  src="/images/skills/reactnative.png"></img>
-          <div>
-            <p>React Native</p>
-          </div>
-        </Item>
-        <Item href="https://nativescript-vue.org/" target="_blank" rel="noopener noreferrer external">
-          <img alt=""  src="/images/skills/nativescript_vue.png"></img>
-          <div>
-            <p>NativeScript Vue</p>
-          </div>
-        </Item>
-        <Item href="https://expressjs.com/" target="_blank" rel="noopener noreferrer external">
-          <img alt=""  src='/images/skills/express.png'></img>
-          <div>
-            <p>ExpressJS</p>
-          </div>
-        </Item>
-        <Item href="https://www.postgresql.org/" target="_blank" rel="noopener noreferrer external">
-          <img alt=""  src='/images/skills/postgres.svg'></img>
-          <div>
-            <p>PostgreSQL</p>
-          </div>
-        </Item>
-        <Item href="https://www.mongodb.com/" target="_blank" rel="noopener noreferrer external">
-          <img alt=""  src='/images/skills/mongodb.png'></img>
-          <div>
-            <p>MongoDB</p>
-          </div>
-        </Item>
-        <Item href="https://firebase.google.com/" target="_blank" rel="noopener noreferrer external">
-          <img alt=""  src="/images/skills/firebase.svg"></img>
-          <div>
-            <p>Firebase Services</p>
-          </div>
-        </Item>
-        <Item href="https://aws.amazon.com/" target="_blank" rel="noopener noreferrer external">
-          <img alt=""  src="/images/skills/aws.svg"></img>
-          <div>
-            <p>AWS</p>
-          </div>
-        </Item>
-      </Wrapper>
+      <Reveal.Slide bottom>
+        <Title>
+          <Lottie style={{ width: "60px" }} animationData={toolsAnimation} />
+          <h1>My bread and butter</h1>
+        </Title>
+        <Wrapper>
+          <Item>
+            <img alt=""  src="/images/skills/html.svg"></img>
+            <div>
+              <p>HTML5</p>
+            </div>
+          </Item>
+          <Item>
+            <img alt=""  src="/images/skills/css.svg"></img>
+            <div>
+              <p>CSS3</p>
+            </div>
+          </Item>
+          <Item>
+            <img alt=""  src="/images/skills/javascript.svg"></img>
+            <div>
+              <p>JavaScript</p>
+            </div>
+          </Item>
+          <Item href="https://reactjs.org/" target="_blank" rel="noopener noreferrer external">
+            <img alt=""  src="/images/skills/react.svg"></img>
+            <div>
+              <p>ReactJS</p>
+            </div>
+          </Item>
+          <Item href="https://vuejs.org/" target="_blank" rel="noopener noreferrer external">
+            <img alt=""  src="/images/skills/vue.svg"></img>
+            <div>
+              <p>VueJS</p>
+            </div>
+          </Item>
+          <Item href="https://reactnative.dev/" target="_blank" rel="noopener noreferrer external">
+            <img alt=""  src="/images/skills/reactnative.png"></img>
+            <div>
+              <p>React Native</p>
+            </div>
+          </Item>
+          <Item href="https://nativescript-vue.org/" target="_blank" rel="noopener noreferrer external">
+            <img alt=""  src="/images/skills/nativescript_vue.png"></img>
+            <div>
+              <p>NativeScript Vue</p>
+            </div>
+          </Item>
+          <Item href="https://expressjs.com/" target="_blank" rel="noopener noreferrer external">
+            <img alt=""  src='/images/skills/express.png'></img>
+            <div>
+              <p>ExpressJS</p>
+            </div>
+          </Item>
+
+          <Item href="https://www.postgresql.org/" target="_blank" rel="noopener noreferrer external">
+            <img alt=""  src='/images/skills/postgres.svg'></img>
+            <div>
+              <p>PostgreSQL</p>
+            </div>
+          </Item>
+          <Item href="https://www.mongodb.com/" target="_blank" rel="noopener noreferrer external">
+            <img alt=""  src='/images/skills/mongodb.png'></img>
+            <div>
+              <p>MongoDB</p>
+            </div>
+          </Item>
+          <Item href="https://firebase.google.com/" target="_blank" rel="noopener noreferrer external">
+            <img alt=""  src="/images/skills/firebase.svg"></img>
+            <div>
+              <p>Firebase Services</p>
+            </div>
+          </Item>
+          <Item href="https://aws.amazon.com/" target="_blank" rel="noopener noreferrer external">
+            <img alt=""  src="/images/skills/aws.svg"></img>
+            <div>
+              <p>AWS</p>
+            </div>
+          </Item>
+        </Wrapper>
+      </Reveal.Slide>
     </Container>
   );
 }

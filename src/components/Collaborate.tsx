@@ -3,16 +3,20 @@ import colors from '../configs/colors'
 import collabAnimation from "../configs/lottie/collaborate.json";
 import Lottie from "lottie-react";
 
+const Reveal = require('react-reveal');
+
 function Collaborate() {
   return (
     <Container>
-      <LottieContainer>
-        <Lottie animationData={collabAnimation} />
-      </LottieContainer>
-      <div>
-        <h1>Thinking of collaborating with me?</h1>
-        <ContactButton onClick={() => window.open('mailto:francislow_6@hotmail.com')}>Get in touch</ContactButton>
-      </div>
+      <Reveal.Slide right>
+        <LottieContainer>
+          <Lottie animationData={collabAnimation} />
+        </LottieContainer>
+        <div>
+          <h1>Thinking of collaborating with me?</h1>
+          <ContactButton onClick={() => window.open('mailto:francislow_6@hotmail.com')}>Get in touch</ContactButton>
+        </div>
+      </Reveal.Slide>
     </Container>
   )
 }

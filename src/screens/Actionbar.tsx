@@ -6,6 +6,8 @@ import { RiArrowDropDownLine } from "react-icons/ri";
 import { useState } from "react";
 import projects from "../configs/catalogue/projectsData";
 
+const Reveal = require('react-reveal');
+
 function Actionbar() {
   enum ActiveMainPage { Home, About, Projects, None }
   let history = useHistory()
@@ -60,28 +62,30 @@ function Actionbar() {
 
   return (
     <Wrapper>
-      <Left>
-        <Link to={`/`}>
-          <BiHomeAlt style={{color: activeMainPage === ActiveMainPage.Home ? colors.yellow : ''}} />
-        </Link>
-      </Left>
-
-      <Right>
-        <NavLink>
-          <Link to={`/about`}>
-            <span style={{color: activeMainPage === ActiveMainPage.About ? colors.yellow : ''}}>ABOUT</span>
+      <Reveal.Fade>
+        <Left>
+          <Link to={`/`}>
+            <BiHomeAlt style={{color: activeMainPage === ActiveMainPage.Home ? colors.yellow : ''}} />
           </Link>
-        </NavLink>
-        <DropDownLink style={{color: activeMainPage === ActiveMainPage.Projects ? colors.yellow : ''}}>
-          <span>PROJECTS</span>
-          <DropArrow>
-            <RiArrowDropDownLine />
-          </DropArrow>
-          <DropDownModal>
-            { renderProjectLinks() }
-          </DropDownModal>
-        </DropDownLink>
-      </Right>
+        </Left>
+
+        <Right>
+          <NavLink>
+            <Link to={`/about`}>
+              <span style={{color: activeMainPage === ActiveMainPage.About ? colors.yellow : ''}}>ABOUT</span>
+            </Link>
+          </NavLink>
+          <DropDownLink style={{color: activeMainPage === ActiveMainPage.Projects ? colors.yellow : ''}}>
+            <span>PROJECTS</span>
+            <DropArrow>
+              <RiArrowDropDownLine />
+            </DropArrow>
+            <DropDownModal>
+              { renderProjectLinks() }
+            </DropDownModal>
+          </DropDownLink>
+        </Right>
+      </Reveal.Fade>
     </Wrapper>
   );
 }

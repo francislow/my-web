@@ -5,24 +5,28 @@ import Lottie from "lottie-react";
 import bulbAnimation from "../../configs/lottie/light-bulb.json";
 import colors from '../../configs/colors';
 
+const Reveal = require('react-reveal');
+
 function Gallery() {
   return (
     <Container>
-      <Title>
-        <Lottie style={{width: "60px"}} animationData={bulbAnimation} />
-        <h1>Some of my work</h1>
-      </Title>
-      <Wrapper>
-        {
-          projectsData.map((data, index) => (
-            <Item key={index}>
-              <Link to={`/projects/${data.id}`}>
-                <img alt="" src={data.images[0]} />
-              </Link>
-            </Item>
-          ))
-        }
-      </Wrapper>
+      <Reveal.Slide left>
+        <Title>
+          <Lottie style={{width: "60px"}} animationData={bulbAnimation} />
+          <h1>Some of my work</h1>
+        </Title>
+        <Wrapper>
+          {
+            projectsData.map((data, index) => (
+              <Item key={index}>
+                <Link to={`/projects/${data.id}`}>
+                  <img alt="" src={data.images[0]} />
+                </Link>
+              </Item>
+            ))
+          }
+        </Wrapper>
+      </Reveal.Slide>
     </Container>
   )
 }

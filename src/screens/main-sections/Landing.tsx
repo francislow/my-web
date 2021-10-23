@@ -1,12 +1,18 @@
 import styled from 'styled-components'
 
+const Reveal = require('react-reveal');
+
 function Landing() {
   return (
     <Background>
-      <DarkOverlay>
-        <h1>Hey, I’m Francis</h1>
-        <h3>I write code to add value to my world</h3>
-      </DarkOverlay>
+      <Reveal.Fade>
+        <DarkOverlay>
+          <h1>Hey, I’m Francis</h1>
+          <Reveal.Fade delay={500}>
+            <h3>I write code to add value to my world</h3>
+          </Reveal.Fade>
+        </DarkOverlay>
+      </Reveal.Fade>
     </Background>
   )
 }
