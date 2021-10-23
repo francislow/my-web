@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import {
   BrowserRouter as Router,
   Switch,
@@ -10,10 +10,10 @@ import Main from "./screens/Main";
 import Project from "./screens/Project";
 import About from "./screens/About";
 import Credit from "./screens/Credit";
-import Loading from "./screens/Loading";
+// import Loading from "./screens/Loading";
 
 function App() {
-  let [isloading, setIsLoading] = useState(true)
+  // let [isloading, setIsLoading] = useState(true)
 
   // useEffect(() => {
   //   const images = ['/images/landing_bg.jpg']
