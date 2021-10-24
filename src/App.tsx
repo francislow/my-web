@@ -15,6 +15,7 @@ import Loading from "./screens/Loading";
 function App() {
   let [isloading, setIsLoading] = useState(true);
 
+  // Load images before starting website
   useEffect(() => {
     const images = [
       "/images/landing_lowres_bg.jpg",

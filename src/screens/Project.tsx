@@ -27,6 +27,7 @@ function Project() {
           key={index}
           style={{ height: "450px", backgroundColor: "rgba(200, 200, 200, 0.1)" }}
         >
+          {/* TODO: Make this FastImage too */}
           <img alt="" src={image} />
         </div>
       );
