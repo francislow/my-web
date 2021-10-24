@@ -5,6 +5,7 @@ import Footer from "./Footer";
 import GetResume from "../components/GetResume";
 import { useLocation } from "react-router";
 import { useEffect } from "react";
+import FastImage from "../components/FastImage";
 
 const Reveal = require('react-reveal');
 
@@ -20,7 +21,9 @@ function About() {
         <TopBackground>
           <DarkOverlay>
             <Reveal.Slide top>
-              <Photo src="/images/francis_pic-min.png"></Photo>
+              <Photo>
+                <FastImage lowResUrl="/images/francis_pic_lowres.jpg" highResUrl="/images/francis_pic.png"/>
+              </Photo>
               <NameText>FRANCIS LOW</NameText>
               <Headline>
                 FULL-STACK DEVELOPER
@@ -32,7 +35,8 @@ function About() {
           <Reveal.Slide bottom>
             <Content>
               <AboutItem
-                imgUrl="/images/education.jpg"
+                highResUrl="/images/education.jpg"
+                lowResUrl="/images/education_lowres.jpg"
                 title="BACKGROUND"
                 type={0}
               >
@@ -58,7 +62,8 @@ function About() {
                 </p>
               </AboutItem>
               <AboutItem
-                imgUrl="/images/work.jpg"
+                highResUrl="/images/work.jpg"
+                lowResUrl="/images/work_lowres.jpg"
                 title="WORK EXPERIENCE"
                 type={1}
               >
@@ -134,16 +139,18 @@ const DarkOverlay = styled.div`
   justify-content: center;
 `;
 
-const Photo = styled.img`
-  border-radius: 50%;
-  width: 170px;
-  height: 170px;
-  object-fit: cover;
-  opacity: 0.9;
+const Photo = styled.div`
+  img{
+    border-radius: 50%;
+    width: 170px;
+    height: 170px;
+    object-fit: cover;
+    opacity: 0.9;
 
-  padding: 3px;
-  background-color: #fff;
-  border: 3px solid #d4d4d4;
+    padding: 3px;
+    background-color: #fff;
+    border: 3px solid #d4d4d4;
+  }
 `;
 
 const NameText = styled.p`

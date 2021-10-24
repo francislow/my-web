@@ -1,9 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 import colors from "../configs/colors";
+import FastImage from "./FastImage";
 
 interface Props {
-  imgUrl: string;
+  lowResUrl: string;
+  highResUrl: string;
   title: string;
   type: number;
   children: React.ReactNode;
@@ -13,10 +15,10 @@ interface WrapperProps {
   type: number;
 }
 
-const AboutItem: React.FC<Props> = ({ imgUrl, title, type, children }) => {
+const AboutItem: React.FC<Props> = ({ lowResUrl, highResUrl, title, type, children }) => {
   return (
     <Wrapper type={type}>
-      <img alt="" src={imgUrl}></img>
+      <FastImage lowResUrl={lowResUrl} highResUrl={highResUrl}/>
       <div>
         <h3>{title}</h3>
         <div>{children}</div>
