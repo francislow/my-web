@@ -6,58 +6,65 @@ import { RiArrowDropDownLine } from "react-icons/ri";
 import { useState } from "react";
 import projects from "../configs/catalogue/projectsData";
 
-const Reveal = require('react-reveal');
+const Reveal = require("react-reveal");
 
 function Actionbar() {
-  enum ActiveMainPage { Home, About, Projects, None }
-  let history = useHistory()
+  enum ActiveMainPage {
+    Home,
+    About,
+    Projects,
+    None,
+  }
+  let history = useHistory();
 
-  function computeActiveMainPage() {
-    let active : ActiveMainPage;
-    if (history.location.pathname === '/') {
-      active = ActiveMainPage.Home
-    } else if (history.location.pathname === '/about') {
-      active = ActiveMainPage.About
-    } else if (history.location.pathname.includes('/projects')) {
-      active = ActiveMainPage.Projects
-    } else {
-      active = ActiveMainPage.None
+  function computeActiveMainPage(): ActiveMainPage {
+    if (history.location.pathname === "/") {
+      return ActiveMainPage.Home;
+    } else if (history.location.pathname === "/about") {
+      return ActiveMainPage.About;
+    } else if (history.location.pathname.includes("/projects")) {
+      return ActiveMainPage.Projects;
     }
 
-    return active
+    return ActiveMainPage.None;
   }
 
   function computeActiveProject() {
-    let activeId : string = '';
+    let activeId: string = "";
 
-    if (history.location.pathname.includes('/projects')) {
+    if (history.location.pathname.includes("/projects")) {
       // Set active project
-      projects.forEach(({id}) => {
+      projects.forEach(({ id }) => {
         if (history.location.pathname.includes(`/${id}`)) {
-          activeId = id
+          activeId = id;
         }
-      })
+      });
     }
 
-    return activeId
+    return activeId;
   }
-  let [activeMainPage, setActiveMainPage] = useState<ActiveMainPage>(computeActiveMainPage()) 
-  let [activeProject, setActiveProject] = useState<string>(computeActiveProject())
+  let [activeMainPage, setActiveMainPage] = useState<ActiveMainPage>(
+    computeActiveMainPage()
+  );
+  let [activeProject, setActiveProject] = useState<string>(
+    computeActiveProject()
+  );
 
- 
-  history.listen((location: {pathname: string}, action) => {
-    setActiveMainPage(computeActiveMainPage())
-    setActiveProject(computeActiveProject())
-  })
+  history.listen((location: { pathname: string }, action) => {
+    setActiveMainPage(computeActiveMainPage());
+    setActiveProject(computeActiveProject());
+  });
 
   function renderProjectLinks() {
-    return projects.map(({id, name}) => {
+    return projects.map(({ id, name }) => {
       return (
         <Link to={`/projects/${id}`} key={id}>
-          <span style={{color: activeProject === id ? colors.yellow : ''}}>{name.toUpperCase()}</span>
+          <span style={{ color: activeProject === id ? colors.yellow : "" }}>
+            {name.toUpperCase()}
+          </span>
         </Link>
-      )
-    })
+      );
+    });
   }
 
   return (
@@ -65,24 +72,41 @@ function Actionbar() {
       <Reveal.Fade>
         <Left>
           <Link to={`/`}>
-            <BiHomeAlt style={{color: activeMainPage === ActiveMainPage.Home ? colors.yellow : ''}} />
+            <HomeLogo
+              style={{
+                color:
+                  activeMainPage === ActiveMainPage.Home ? colors.yellow : "",
+              }}
+            />
           </Link>
         </Left>
 
         <Right>
           <NavLink>
             <Link to={`/about`}>
-              <span style={{color: activeMainPage === ActiveMainPage.About ? colors.yellow : ''}}>ABOUT</span>
+              <span
+                style={{
+                  color:
+                    activeMainPage === ActiveMainPage.About
+                      ? colors.yellow
+                      : "",
+                }}
+              >
+                ABOUT
+              </span>
             </Link>
           </NavLink>
-          <DropDownLink style={{color: activeMainPage === ActiveMainPage.Projects ? colors.yellow : ''}}>
+          <DropDownLink
+            style={{
+              color:
+                activeMainPage === ActiveMainPage.Projects ? colors.yellow : "",
+            }}
+          >
             <span>PROJECTS</span>
             <DropArrow>
               <RiArrowDropDownLine />
             </DropArrow>
-            <DropDownModal>
-              { renderProjectLinks() }
-            </DropDownModal>
+            <DropDownModal>{renderProjectLinks()}</DropDownModal>
           </DropDownLink>
         </Right>
       </Reveal.Fade>
@@ -94,8 +118,13 @@ const Wrapper = styled.div`
   position: fixed;
   z-index: 99;
   width: 100%;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.3), 50%, rgba(0,0,0,0.0));
-  padding: 18px 25px;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.3),
+    50%,
+    rgba(0, 0, 0, 0)
+  );
+  padding: 15px 25px 25px 25px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -103,7 +132,7 @@ const Wrapper = styled.div`
   @media (max-width: 768px) {
     padding: 14px 18px;
   }
-`
+`;
 
 const Left = styled.div`
   display: flex;
@@ -124,12 +153,12 @@ const Left = styled.div`
       font-size: 18px;
     }
   }
-`
+`;
 
 const Right = styled.div`
   display: flex;
   align-items: center;
-`
+`;
 
 const DropArrow = styled.div`
   font-size: 20px;
@@ -174,6 +203,14 @@ const DropDownModal = styled.div`
       margin: 4px 8px;
       font-size: 12px;
     }
+  }
+`;
+
+const HomeLogo = styled(BiHomeAlt)`
+  font-size: 28px;
+
+  @media (max-width: 768px) {
+    font-size: 20px;
   }
 `;
 
