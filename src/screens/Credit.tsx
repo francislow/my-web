@@ -48,7 +48,11 @@ function Credit() {
           <CreditLink desc="Icon 12" url="https://www.iconfinder.com/icons/6802160/astronomy_earth_galaxy_planet_science_space_world_icon"/>
           <CreditLink desc="Icon 13" url="https://www.iconfinder.com/icons/2992666/content_create_customer_human_man_people_icon"/>
         </Section>
-
+        <Section>
+          <h1>TECHICONS icons</h1>
+          <CreditLink desc="NestJs" url="https://techicons.dev/icons/nestjs"/>
+          <CreditLink desc="Docker" url="https://techicons.dev/icons/docker"/>
+        </Section>
       </Page>
       <Footer hasBackground={false} />
     </>
