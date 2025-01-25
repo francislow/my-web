@@ -7,7 +7,7 @@ import { useLocation } from "react-router";
 import { useEffect } from "react";
 import FastImage from "../components/FastImage";
 
-const Reveal = require('react-reveal');
+const Reveal = require("react-reveal");
 
 function About() {
   const location = useLocation();
@@ -22,12 +22,13 @@ function About() {
           <DarkOverlay>
             <Reveal.Slide top>
               <Photo>
-                <FastImage lowResUrl="/images/francis_pic_lowres.jpg" highResUrl="/images/francis_pic.png"/>
+                <FastImage
+                  lowResUrl="/images/francis_pic_lowres.jpg"
+                  highResUrl="/images/francis_pic.png"
+                />
               </Photo>
               <NameText>FRANCIS LOW</NameText>
-              <Headline>
-                FULL-STACK DEVELOPER
-              </Headline>
+              <Headline>FULL-STACK DEVELOPER</Headline>
             </Reveal.Slide>
           </DarkOverlay>
         </TopBackground>
@@ -49,8 +50,8 @@ function About() {
                   >
                     National University of Singapore
                   </a>{" "}
-                  in year 2021 with a degree in Applied Mathematics and a minor in
-                  Computer Science. In the summer of 2019, I spent my time in{" "}
+                  in year 2021 with a degree in Applied Mathematics and a minor
+                  in Computer Science. In the summer of 2019, I spent my time in{" "}
                   <a
                     target="_blank"
                     rel="noopener noreferrer"
@@ -85,7 +86,7 @@ function About() {
                   >
                     Maxi-Cash
                   </a>
-                  . I am currently a full-time software engineer at{" "}
+                  . I am currently working full-time at{" "}
                   <a
                     target="_blank"
                     rel="noopener noreferrer"
@@ -93,7 +94,8 @@ function About() {
                   >
                     Ufinity
                   </a>
-                  , an IT solutions engineering company.
+                  , an IT solutions engineering company, as a Senior Software
+                  Engineer.
                 </p>
               </AboutItem>
             </Content>
@@ -117,7 +119,8 @@ const Page = styled.div`
 const TopBackground = styled.div`
   height: 400px;
   width: 100%;
-  background-image: url("/images/about_bg.jpg"), url("/images/about_lowres_bg.jpg");
+  background-image: url("/images/about_bg.jpg"),
+    url("/images/about_lowres_bg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -140,7 +143,7 @@ const DarkOverlay = styled.div`
 `;
 
 const Photo = styled.div`
-  img{
+  img {
     border-radius: 50%;
     width: 170px;
     height: 170px;
