@@ -21,7 +21,15 @@ const OptimizedImage: React.FC<Props> = ({ lowResUrl, highResUrl }) => {
     };
   }, []);
 
-  return <img ref={imgRef} alt="" src={lowResUrl} data-src={highResUrl}></img>;
+  return (
+    <img
+      draggable={false}
+      ref={imgRef}
+      alt=""
+      src={lowResUrl}
+      data-src={highResUrl}
+    ></img>
+  );
 };
 
 export default OptimizedImage;

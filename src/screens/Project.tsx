@@ -24,7 +24,10 @@ function Project() {
   }, [location]);
 
   const { isLoading } = useLazyLoad({
-    imagesUrl: projectsData.flatMap((it) => it.images),
+    imagesUrl: [
+      "/images/project_lowres_bg.jpg",
+      ...projectsData.flatMap((it) => it.images),
+    ],
   });
 
   function renderCarouselImages() {

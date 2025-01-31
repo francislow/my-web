@@ -16,6 +16,7 @@ function About() {
 
   const { isLoading } = useLazyLoad({
     imagesUrl: [
+      "/images/about_lowres_bg.jpg",
       "/images/francis_pic_lowres.jpg",
       "/images/education_lowres.jpg",
       "/images/work_lowres.jpg",
