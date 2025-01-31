@@ -5,7 +5,7 @@ import Footer from "./Footer";
 import GetResume from "../components/GetResume";
 import { useLocation } from "react-router";
 import { useEffect } from "react";
-import FastImage from "../components/FastImage";
+import OptimizedImage from "../components/OptimizedImage";
 import { useLazyLoad } from "../hooks/useLazyLoad";
 import Loading from "./Loading";
 
@@ -35,7 +35,7 @@ function About() {
           <DarkOverlay>
             <Reveal.Slide top>
               <Photo>
-                <FastImage
+                <OptimizedImage
                   lowResUrl="/images/francis_pic_lowres.jpg"
                   highResUrl="/images/francis_pic.png"
                 />
