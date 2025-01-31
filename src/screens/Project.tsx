@@ -4,7 +4,7 @@ import projectsData from "../configs/catalogue/projectsData";
 import colors from "../configs/colors";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { BsCalendarFill } from "react-icons/bs";
 import { IoExtensionPuzzle } from "react-icons/io5";
 import Footer from "./Footer";
@@ -16,7 +16,7 @@ const Reveal = require("react-reveal");
 
 function Project() {
   const { projectId } = useParams<{ projectId: string }>();
-  const projectData = projectsData.filter((data) => data.id === projectId)[0];
+  const data = projectsData.filter((data) => data.id === projectId)[0];
 
   const location = useLocation();
   useEffect(() => {
@@ -24,11 +24,11 @@ function Project() {
   }, [location]);
 
   const { isLoading } = useLazyLoad({
-    imagesUrl: ["/images/projects/hourglass.svg"],
+    imagesUrl: projectsData.flatMap((it) => it.images),
   });
 
   function renderCarouselImages() {
-    return projectData.images.map((image, index) => {
+    return data.images.map((image, index) => {
       return (
         <div
           key={index}
@@ -37,10 +37,7 @@ function Project() {
             backgroundColor: "rgba(200, 200, 200, 0.1)",
           }}
         >
-          <OptimizedImage
-            lowResUrl={"/images/projects/hourglass.svg"}
-            highResUrl={image}
-          />
+          <OptimizedImage lowResUrl={image} highResUrl={image} />
         </div>
       );
     });
@@ -70,46 +67,46 @@ function Project() {
               </Carousel>
             </CarouselWrapper>
             <Content>
-              <ProjectName>{projectData.name}</ProjectName>
+              <ProjectName>{data.name}</ProjectName>
               <LinkWrapper>
-                {projectData.playstoreUrl ? (
+                {data.playstoreUrl ? (
                   <a
                     target="_blank"
                     rel="noopener noreferrer external"
-                    href={projectData.playstoreUrl}
+                    href={data.playstoreUrl}
                   >
                     <img alt="" src={"/images/playstore.svg"}></img>
                   </a>
                 ) : (
                   <></>
                 )}
-                {projectData.appstoreUrl ? (
+                {data.appstoreUrl ? (
                   <a
                     target="_blank"
                     rel="noopener noreferrer external"
-                    href={projectData.appstoreUrl}
+                    href={data.appstoreUrl}
                   >
                     <img alt="" src={"/images/appstore.svg"}></img>
                   </a>
                 ) : (
                   <></>
                 )}
-                {projectData.weburl ? (
+                {data.weburl ? (
                   <a
                     target="_blank"
                     rel="noopener noreferrer external"
-                    href={projectData.weburl}
+                    href={data.weburl}
                   >
                     <img alt="" src={"/images/web.svg"}></img>
                   </a>
                 ) : (
                   <></>
                 )}
-                {projectData.sourceCodeLink ? (
+                {data.sourceCodeLink ? (
                   <a
                     target="_blank"
                     rel="noopener noreferrer external"
-                    href={projectData.sourceCodeLink}
+                    href={data.sourceCodeLink}
                   >
                     <img alt="" src={"/images/github.svg"}></img>
                   </a>
@@ -119,20 +116,20 @@ function Project() {
               </LinkWrapper>
               <ProjectSpecialLabel>
                 <BsCalendarFill />
-                <p>{projectData.timeline}</p>
+                <p>{data.timeline}</p>
               </ProjectSpecialLabel>
 
               <ProjectSpecialLabel>
                 <IoExtensionPuzzle />
-                <p>{projectData.type}</p>
+                <p>{data.type}</p>
               </ProjectSpecialLabel>
 
-              {projectData.descriptions.map((desc, index) => (
+              {data.descriptions.map((desc, index) => (
                 <ProjectDesc key={index}>{desc}</ProjectDesc>
               ))}
 
               <ProjectTools>
-                {projectData.devTools.map((title, index) => {
+                {data.devTools.map((title, index) => {
                   return <p key={index}>{title}</p>;
                 })}
               </ProjectTools>
