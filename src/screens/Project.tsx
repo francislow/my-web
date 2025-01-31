@@ -4,7 +4,7 @@ import projectsData from "../configs/catalogue/projectsData";
 import colors from "../configs/colors";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { BsCalendarFill } from "react-icons/bs";
 import { IoExtensionPuzzle } from "react-icons/io5";
 import Footer from "./Footer";
