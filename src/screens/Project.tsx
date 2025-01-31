@@ -8,8 +8,11 @@ import { useEffect } from "react";
 import { BsCalendarFill } from "react-icons/bs";
 import { IoExtensionPuzzle } from "react-icons/io5";
 import Footer from "./Footer";
+import OptimizedImage from "../components/OptimizedImage";
+import { useLazyLoad } from "../hooks/useLazyLoad";
+import Loading from "./Loading";
 
-const Reveal = require('react-reveal');
+const Reveal = require("react-reveal");
 
 function Project() {
   const { projectId } = useParams<{ projectId: string }>();
@@ -20,108 +23,121 @@ function Project() {
     window.scrollTo(0, 0);
   }, [location]);
 
+  const { isLoading } = useLazyLoad({
+    imagesUrl: ["/images/projects/hourglass.svg"],
+  });
+
   function renderCarouselImages() {
     return projectData.images.map((image, index) => {
       return (
         <div
           key={index}
-          style={{ height: "450px", backgroundColor: "rgba(200, 200, 200, 0.1)" }}
+          style={{
+            height: "450px",
+            backgroundColor: "rgba(200, 200, 200, 0.1)",
+          }}
         >
-          {/* TODO: Make this OptimizedImage too */}
-          <img alt="" src={image} />
+          <OptimizedImage
+            lowResUrl={"/images/projects/hourglass.svg"}
+            highResUrl={image}
+          />
         </div>
       );
     });
   }
 
+  if (isLoading) return <Loading />;
+
   return (
     <>
       <Page>
         <DarkOverlay>
-        <Reveal.Slide bottom>
-          <CarouselWrapper>
-            <Carousel
-              autoPlay={true}
-              dynamicHeight={false}
-              showStatus={false}
-              showIndicators={true}
-              interval={3500}
-              showThumbs={false}
-              emulateTouch={true}
-              swipeable={true}
-              stopOnHover={true}
-              infiniteLoop={true}
-            >
-              {renderCarouselImages()}
-            </Carousel>
-          </CarouselWrapper>
-          <Content>
-            <ProjectName>{projectData.name}</ProjectName>
-            <LinkWrapper>
-              {projectData.playstoreUrl ? (
-                <a
-                  target="_blank"
-                  rel="noopener noreferrer external"
-                  href={projectData.playstoreUrl}
-                >
-                  <img alt="" src={"/images/playstore.svg"}></img>
-                </a>
-              ) : (
-                <></>
-              )}
-              {projectData.appstoreUrl ? (
-                <a
-                  target="_blank"
-                  rel="noopener noreferrer external"
-                  href={projectData.appstoreUrl}
-                >
-                  <img alt="" src={"/images/appstore.svg"}></img>
-                </a>
-              ) : (
-                <></>
-              )}
-              {projectData.weburl ? (
-                <a
-                  target="_blank"
-                  rel="noopener noreferrer external"
-                  href={projectData.weburl}
-                >
-                  <img alt="" src={"/images/web.svg"}></img>
-                </a>
-              ) : (
-                <></>
-              )}
-              {projectData.sourceCodeLink ? (
-                <a
-                  target="_blank"
-                  rel="noopener noreferrer external"
-                  href={projectData.sourceCodeLink}
-                >
-                  <img alt="" src={"/images/github.svg"}></img>
-                </a>
-              ) : (
-                <></>
-              )}
-            </LinkWrapper>
-            <ProjectSpecialLabel>
-              <BsCalendarFill />
-              <p>{projectData.timeline}</p>
-            </ProjectSpecialLabel>
+          <Reveal.Slide bottom>
+            <CarouselWrapper>
+              <Carousel
+                autoPlay={true}
+                dynamicHeight={false}
+                showStatus={false}
+                showIndicators={true}
+                interval={3500}
+                showThumbs={false}
+                emulateTouch={true}
+                swipeable={true}
+                stopOnHover={true}
+                infiniteLoop={true}
+              >
+                {renderCarouselImages()}
+              </Carousel>
+            </CarouselWrapper>
+            <Content>
+              <ProjectName>{projectData.name}</ProjectName>
+              <LinkWrapper>
+                {projectData.playstoreUrl ? (
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer external"
+                    href={projectData.playstoreUrl}
+                  >
+                    <img alt="" src={"/images/playstore.svg"}></img>
+                  </a>
+                ) : (
+                  <></>
+                )}
+                {projectData.appstoreUrl ? (
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer external"
+                    href={projectData.appstoreUrl}
+                  >
+                    <img alt="" src={"/images/appstore.svg"}></img>
+                  </a>
+                ) : (
+                  <></>
+                )}
+                {projectData.weburl ? (
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer external"
+                    href={projectData.weburl}
+                  >
+                    <img alt="" src={"/images/web.svg"}></img>
+                  </a>
+                ) : (
+                  <></>
+                )}
+                {projectData.sourceCodeLink ? (
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer external"
+                    href={projectData.sourceCodeLink}
+                  >
+                    <img alt="" src={"/images/github.svg"}></img>
+                  </a>
+                ) : (
+                  <></>
+                )}
+              </LinkWrapper>
+              <ProjectSpecialLabel>
+                <BsCalendarFill />
+                <p>{projectData.timeline}</p>
+              </ProjectSpecialLabel>
 
-            <ProjectSpecialLabel>
-              <IoExtensionPuzzle />
-              <p>{projectData.type}</p>
-            </ProjectSpecialLabel>
-            
-            { projectData.descriptions.map((desc, index) => <ProjectDesc key={index}>{desc}</ProjectDesc>) }
-            
-            <ProjectTools>
-              {projectData.devTools.map((title, index) => {
-                return <p key={index}>{title}</p>;
-              })}
-            </ProjectTools>
-          </Content>
-        </Reveal.Slide>
+              <ProjectSpecialLabel>
+                <IoExtensionPuzzle />
+                <p>{projectData.type}</p>
+              </ProjectSpecialLabel>
+
+              {projectData.descriptions.map((desc, index) => (
+                <ProjectDesc key={index}>{desc}</ProjectDesc>
+              ))}
+
+              <ProjectTools>
+                {projectData.devTools.map((title, index) => {
+                  return <p key={index}>{title}</p>;
+                })}
+              </ProjectTools>
+            </Content>
+          </Reveal.Slide>
         </DarkOverlay>
       </Page>
       <Footer hasBackground={false} />
@@ -132,7 +148,8 @@ function Project() {
 const Page = styled.div`
   min-height: 100vh;
   width: 100%;
-  background-image: url("/images/project_bg.jpg"), url("/images/project_lowres_bg.jpg");
+  background-image: url("/images/project_bg.jpg"),
+    url("/images/project_lowres_bg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -155,11 +172,11 @@ const DarkOverlay = styled.div`
 
   @media (max-width: 768px) {
     background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.8),
-    70%,
-    rgb(10, 10, 10)
-  );
+      to bottom,
+      rgba(0, 0, 0, 0.8),
+      70%,
+      rgb(10, 10, 10)
+    );
   }
 `;
 
