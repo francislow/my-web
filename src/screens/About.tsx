@@ -6,14 +6,27 @@ import GetResume from "../components/GetResume";
 import { useLocation } from "react-router";
 import { useEffect } from "react";
 import FastImage from "../components/FastImage";
+import { useLazyLoad } from "../hooks/useLazyLoad";
+import Loading from "./Loading";
 
 const Reveal = require("react-reveal");
 
 function About() {
   const location = useLocation();
+
+  const { isLoading } = useLazyLoad({
+    imagesUrl: [
+      "/images/francis_pic_lowres.jpg",
+      "/images/education_lowres.jpg",
+      "/images/work_lowres.jpg",
+    ],
+  });
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location]);
+
+  if (isLoading) return <Loading />;
 
   return (
     <>
