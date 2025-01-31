@@ -173,7 +173,7 @@ const DropDownModal = styled.div`
   position: absolute;
   background-color: rgba(255, 255, 255, 0.2);
   border-radius: 4px;
-  top: 55px;
+  top: 30px;
   padding: 6px;
   display: flex;
   flex-direction: column;
@@ -197,7 +197,7 @@ const DropDownModal = styled.div`
   }
 
   @media (max-width: 768px) {
-    top: 40px;
+    top: 35px;
 
     > a {
       margin: 4px 8px;
